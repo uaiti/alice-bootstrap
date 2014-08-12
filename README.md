@@ -1,4 +1,4 @@
-Utilizando o Alice com o Doctrine em Projetos sem Doctrine
+Utilizando o Alice em Projetos sem Doctrine
 ===========================================================
 
 ## Primeiros passos
@@ -7,7 +7,6 @@ Para utilizar o Alice com o Doctrine, mesmo em projetos onde não está sendo ut
 o Doctrine, é necessário: 
 
 - Criar um arquivo .yml com as definições da tabela (pasta config/yml/). Por exemplo:
-	# config/yaml/Usuario.dcm.yml
 	Usuario:
 	  type: entity
 	  table: usuario
