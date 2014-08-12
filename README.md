@@ -8,6 +8,7 @@ o Doctrine, é necessário:
 
 - Criar um arquivo .yml com as definições da tabela (pasta config/yml/). Por exemplo:
 	<pre lang="yaml"><code>
+	# config/yml/Usuario.dcm.yml
 	Usuario:
 	  type: entity
 	  table: usuario
@@ -29,6 +30,7 @@ o Doctrine, é necessário:
 
 - Criar um arquivo .yml com os dados das tabelas (pasta fixtures/tables/). Por Exemplo:
 	<pre lang="yaml"><code>
+	# fixtures/tables/usuario.yml
 	Usuario:
 	  user1:
 	    name: <firstName()> <lastName()>
