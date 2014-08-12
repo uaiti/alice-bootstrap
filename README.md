@@ -7,6 +7,7 @@ Para utilizar o Alice com o Doctrine, mesmo em projetos onde não está sendo ut
 o Doctrine, é necessário: 
 
 - Criar um arquivo .yml com as definições da tabela (pasta config/yml/). Por exemplo:
+	<pre lang="yaml"><code>
 	Usuario:
 	  type: entity
 	  table: usuario
@@ -24,14 +25,17 @@ o Doctrine, é necessário:
 	      type: string
 	    password:
 	      type: string
+  	</code></pre>
 
 - Criar um arquivo .yml com os dados das tabelas (pasta fixtures/tables/). Por Exemplo:
+	<pre lang="yaml"><code>
 	Usuario:
 	  user1:
 	    name: <firstName()> <lastName()>
 	    login: <username()>
 	    email: <email()>
 	    password: pass1
+    </code></pre>
 
 - Gerar os arquivos de schema a partir dos arquivos .yml de definições da tabela. No terminal, digite:
 	$ php vendor/bin/doctrine orm:generate:entities config/php
