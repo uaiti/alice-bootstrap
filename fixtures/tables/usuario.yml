@@ -1,0 +1,6 @@
+Usuario:
+  user1:
+    name: <firstName()> <lastName()>
+    login: <username()>
+    email: <email()>
+    password: pass1
