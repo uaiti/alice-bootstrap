@@ -40,7 +40,7 @@ o Doctrine, é necessário:
     </code></pre>
 
 - Gerar os arquivos de schema a partir dos arquivos .yml de definições da tabela. No terminal, digite:
-	$ php vendor/bin/doctrine orm:generate:entities config/php
+	```$ php vendor/bin/doctrine orm:generate:entities config/php```
 
 - Carregar os dados usando o script ./loader.php: ```php loader.php```
 
@@ -50,6 +50,6 @@ Em alguns projetos onde o Doctrine não está sendo utilizado será melhor inici
 estrutura de um banco de dados pronto, gerando os arquivos de schema e então dar início ao processo do item acima.
 
 Para isso, rode no terminal:
-	$ php vendor/bin/doctrine.php orm:convert:mapping --from-database yaml config/yaml/
+	```$ php vendor/bin/doctrine.php orm:convert:mapping --from-database yaml config/yaml/```
 
 Isso irá buscar todas as tabelas do banco (ver as configurações em bootstrap.php) e gerar os arquivos de schema na pasta config/yaml.
