@@ -13,4 +13,4 @@ $carregador->createSchema($objects);
 
 $carregador->populate($objects);
 
-
+$carregador->clear($objects);
