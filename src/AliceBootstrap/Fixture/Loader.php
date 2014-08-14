@@ -38,12 +38,12 @@ class Loader
     }
 
     public function populate(array $arrEntities) {
-        $objects = $this->getDependencyOrdered($arrEntities);
+        $ordered = $this->getDependencyOrdered($arrEntities);
 
         $persister = new \Nelmio\Alice\ORM\Doctrine($this->em);
 
-        foreach ($objects as $object) {
-            $persister->persist([$object]);
+        foreach ($ordered as $objects) {
+            $persister->persist($objects);
         }
     }
 
@@ -72,14 +72,31 @@ class Loader
         }
 
         // join in dependency order
-        $ordered = array_merge($alone, $identity, $dependent);
+        $ordered = compact('alone', 'identity', 'dependent');
         // reorder the objects array so they can be inserted without dependency erros
+        $entities = $this->classify($ordered, $arrEntities);
+        return $entities;
+    }
+
+    protected function classify($ordered, $arrEntities)
+    {
+        
+        $classified = array();
+        foreach ($ordered as $type => $itens) {
+            $classified[$type] = array();
+            foreach ($itens as $className) {
+                $classified[$type] = array_merge($classified[$type], $this->getObjectEntities($arrEntities, $className));
+            }
+        }
+        return $classified;
+    }
+
+    protected function getObjectEntities($arrEntities, $className)
+    {
         $entities = array();
-        foreach ($ordered as $className) {
-            foreach ($arrEntities as $entity) {
-                if (get_class($entity) == $className) {
-                    $entities[] = $entity;
-                }
+        foreach ($arrEntities as $entity) {
+            if (get_class($entity) == $className) {
+                $entities[] = $entity;
             }
         }
         return $entities;
@@ -88,9 +105,6 @@ class Loader
     protected function getEntityClassName(\Doctrine\ORM\Mapping\ClassMetadata $metadata)
     {
         $className = $metadata->rootEntityName;
-        if ($metadata->namespace) {
-            $className = $metadata->namespace . "\\" . $className;
-        }
         return $className;
     }
 
