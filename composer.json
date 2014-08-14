@@ -1,5 +1,6 @@
 {
-    "name": "charles/alice_teste",
+    "name": "charles/alice-bootstrap",
+    "version": "0.1.1",
     "authors": [
         {
             "name": "Charles Schaefer",
