@@ -14,7 +14,7 @@ $config = Setup::createYAMLMetadataConfiguration(array(__DIR__."/config/yaml"), 
 $conn = array(
     'driver' => 'pdo_mysql',
     'dbname' => 'zf2_curso',
-    'namespace' => 'AliceTeste',
+    // 'namespace' => 'AliceBootstrap',
     'user' => 'root'
 );
 
