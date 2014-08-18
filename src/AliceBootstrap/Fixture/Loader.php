@@ -57,7 +57,6 @@ class Loader
         $this->truncate($ordered);
     }
 
-
     protected function truncate(array $arrEntities = null, $flush = true)
     {
         // disable foreign key checks so there won't be dependency errors
@@ -73,6 +72,8 @@ class Loader
 
         if ($flush) {
             $this->em->flush();
+            $sql = "SET FOREIGN_KEY_CHECKS=1";
+            $this->em->getConnection()->executeQuery($sql);
         }
     }
 
